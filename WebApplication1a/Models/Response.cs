@@ -1,0 +1,21 @@
+﻿namespace WebApplication1a.Models
+{
+    public class Response
+    {
+
+        public int StatusCode { get; set; }
+        public int StatusMessage { get; set; }
+        public List<Registration> listRegistration { get; set; }
+        public Registration Registration { get; set; }
+        public List<Article> listArticle { get; set; }
+        public List<News> listNews { get; set; }
+        public List<Events> listEvents { get; set; }
+
+
+
+
+
+
+
+    }
+}
