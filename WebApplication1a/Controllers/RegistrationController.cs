@@ -21,12 +21,37 @@ namespace WebApplication1a.Controllers
         {
             Response response = new Response();
             SqlConnection connection=new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new Dal();
+            response=dal.Registration(registration,connection);
+            return response;
+        }
 
+        [HttpPost]
+        [Route("Login")]
+        public Response Login (Registration registration)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new Dal();
+            response = dal.Login(registration, connection);
+            return response;
+        }
 
+        [HttpPost]
+        [Route("UserApproval")]
+        public Response UserApproval(Registration registration)
+        
+        
+        {
+
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new Dal();
+            response = dal.UserApproval(registration, connection);
             return response;
 
-
-
         }
+
+
     }
 }
