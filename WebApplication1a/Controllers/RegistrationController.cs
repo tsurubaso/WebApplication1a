@@ -52,6 +52,31 @@ namespace WebApplication1a.Controllers
 
         }
 
+        [HttpPost]
+        [Route("StaffRegistration")]
+
+        public Response StaffRegistration(Staff staff)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new Dal();
+            response = dal.StaffRegistration(staff, connection);
+            return response;
+        }
+
+
+        [HttpPost]
+        [Route("DeleteStaff")]
+
+        public Response DeleteStaff(Staff staff)
+        {
+            Response response = new Response();
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            Dal dal = new Dal();
+            response = dal.StaffRegistration(staff, connection);
+            return response;
+        }
+
 
     }
 }
