@@ -42,10 +42,5 @@ namespace WebApplication1a.Controllers
         }
 
 
-
-
-
-
-
     }
 }
