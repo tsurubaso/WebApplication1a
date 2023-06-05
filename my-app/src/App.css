@@ -7,3 +7,15 @@
   .card-registration .select-arrow {
   top: 13px;
   }
+
+  .divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.full-width-button {
+  width: 100%;
+}

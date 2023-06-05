@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using WebApplication1a.Models;
 
@@ -14,21 +15,23 @@ namespace WebApplication1a.Controllers
         {
             _configuration = configuration;
         }
+
         [HttpPost]
         [Route("Registration")]
-
         public Response Registration(Registration registration)
         {
             Response response = new Response();
-            SqlConnection connection=new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
             Dal dal = new Dal();
-            response=dal.Registration(registration,connection);
+            response = dal.Registration(registration, connection);
+            
+
             return response;
         }
 
         [HttpPost]
         [Route("Login")]
-        public Response Login (Registration registration)
+        public Response Login(Registration registration)
         {
             Response response = new Response();
             SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("SNCon").ToString());
@@ -40,8 +43,6 @@ namespace WebApplication1a.Controllers
         [HttpPost]
         [Route("UserApproval")]
         public Response UserApproval(Registration registration)
-        
-        
         {
 
             Response response = new Response();

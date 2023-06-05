@@ -40,6 +40,7 @@ namespace WebApplication1a.Models
             SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM Registration WHERE Email='"+registration.Email+"'AND Password='"+registration.Password+"'", connection);
             DataTable dt = new DataTable();
             da.Fill(dt);
+            Console.WriteLine(dt);
             Response response = new Response();
             if (dt.Rows.Count > 0)
             {

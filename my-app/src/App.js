@@ -1,13 +1,10 @@
+import RouterPage from './components/RouterPage';
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
-
-import Registration from './components/Registration';
 
 function App() {
   return (
     <div className="App">
-<Registration/>
+<RouterPage></RouterPage>
 
     </div>
   );
