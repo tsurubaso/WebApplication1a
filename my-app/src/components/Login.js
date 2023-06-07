@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const history = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -12,8 +14,8 @@ const Login = () => {
     const data = {
       Email: email,
       Password: password,
-      Name: '',
-      PhoneNo: '',
+      Name: "",
+      PhoneNo: "",
     };
 
     console.log(data);
@@ -24,7 +26,18 @@ const Login = () => {
         clear();
         const dt = result.data;
         alert(dt.statusMessage);
-        console.log(dt);
+        if (dt.statusCode === 200) {
+          if (email === "admin" && password === "admin") {
+            localStorage, setItem("username", email);
+            history.push("/admindashboard");
+          }
+          else
+          {
+            localStorage, setItem("username", email);
+
+
+          }
+        }
       })
       .catch((err) => {
         console.error(err);
@@ -32,17 +45,12 @@ const Login = () => {
   };
 
   const handleRegistration = (e) => {
-
-
     e.preventDefault();
     // Perform login logic
-    
+
     // Redirect to a new URL
     window.location.href = "./registration";
-
-
-
-  }
+  };
 
   const clear = () => {
     setEmail("");
@@ -133,12 +141,11 @@ const Login = () => {
                 >
                   <i className="fab fa-twitter me-2"></i>Continue with Twitter
                 </a>
-                <div className="divider d-flex align-items-center my-1">
-                </div>
+                <div className="divider d-flex align-items-center my-1"></div>
                 <button
                   type="submit"
                   className="btn btn-primary btn-lg btn-block full-width-button "
-                  onClick={(e) =>handleRegistration(e)}
+                  onClick={(e) => handleRegistration(e)}
                 >
                   Not registered yet
                 </button>
